@@ -1,0 +1,22 @@
+:root {
+	--ff-primary: "Inter", sans-serif;
+	--ff-secondary: "Karla", sans-serif;
+
+	--fw-400: 400;
+	--fw-500: 500;
+	--fw-600: 600;
+	--fw-700: 700;
+
+	--fs-large: 2rem; /* 31.25px; */
+	--fs-regular: 1rem; /* 16px; */
+	--fs-small: 0.65rem; /* 10.24px; */
+	--fs-score: 0.8rem; /* 12.8px; */
+
+	--clr-primary: #f5f7fb;
+	--clr-secondary: #293264;
+
+	--clr-lg-btn: #4d5b9e;
+	--clr-selector: #d6dbf5;
+	--clr-correct: #94d7a2;
+	--clr-wrong: #f8bcbc;
+}
