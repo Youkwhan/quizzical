@@ -12,7 +12,7 @@
 	--fs-small: 0.65rem; /* 10.24px; */
 	--fs-score: 0.8rem; /* 12.8px; */
 
-	--clr-primary: #e3e6ee;
+	--clr-primary: #eaedf5;
 	--clr-secondary: #293264;
 
 	--clr-lg-btn: #4d5b9e;
@@ -64,6 +64,8 @@ h1,h2 {
 	letter-spacing: 0.04rem;
 }
 
+/* buttons */
+
 .btn {
 	color: var(--clr-primary);
    background-color: var(--clr-lg-btn);
@@ -85,4 +87,3 @@ h1,h2 {
 	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
-/* Blob */
