@@ -10,6 +10,7 @@ function Quiz() {
 		fetchTrivia()
 	}, [])
 
+	console.log(triviaData)
 	// fetch objects
 	async function fetchTrivia() {
 		const res = await fetch("https://opentdb.com/api.php?amount=5&category=18")
@@ -27,12 +28,25 @@ function Quiz() {
 
 	function renderTriviaElements() {
 		return triviaData.map((item) => {
-			return <Trivia key={item.id} {...item} />
+			return <Trivia key={item.id} {...item} handleSubmit={handleSubmit} />
 		})
 	}
 
+	// when we select a answer update, selection for that question
+	function handleSubmit(event) {
+		const { name, value } = event.target
+		setTriviaData((prevData) =>
+			prevData.map((question) => {
+				if (question.id === name) {
+					question.selectedAnswer = value
+				}
+				return question
+			})
+		)
+	}
+
 	return (
-		<div>
+		<div className="quiz">
 			{renderTriviaElements()}
 			<button>Check answers</button>
 		</div>
