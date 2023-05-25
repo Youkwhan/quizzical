@@ -1,4 +1,6 @@
 import { useState } from "react"
+
+import Quiz from "./components/Quiz"
 import "./App.css"
 
 function App() {
@@ -10,14 +12,19 @@ function App() {
 
 			<div className="content-container">
 				{game ? (
-					<div>Hello</div>
+					<Quiz />
 				) : (
 					<div className="start-quiz">
 						<h1>Quizzical</h1>
 						<p className="start-quiz__description">
 							Some description if needed
 						</p>
-						<button className="start-quiz__btn btn">Start quiz</button>
+						<button
+							className="start-quiz__btn btn"
+							onClick={() => setGame(true)}
+						>
+							Start quiz
+						</button>
 					</div>
 				)}
 			</div>
