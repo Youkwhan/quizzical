@@ -11,7 +11,7 @@ function App() {
 				<div className="start-quiz">
 					<h1>Quizzical</h1>
 					<p className="start-quiz__description">Some description if needed</p>
-					<button className="start-quiz__btn">Start quiz</button>
+					<button className="start-quiz__btn btn">Start quiz</button>
 				</div>
 			)}
 		</main>

@@ -12,7 +12,7 @@
 	--fs-small: 0.65rem; /* 10.24px; */
 	--fs-score: 0.8rem; /* 12.8px; */
 
-	--clr-primary: #f5f7fb;
+	--clr-primary: #e3e6ee;
 	--clr-secondary: #293264;
 
 	--clr-lg-btn: #4d5b9e;
@@ -20,3 +20,69 @@
 	--clr-correct: #94d7a2;
 	--clr-wrong: #f8bcbc;
 }
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: var(--ff-secondary);
+	color: var(--clr-secondary);
+	background-color: var(--clr-primary);
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+
+	display: grid;
+	place-items: center;
+	user-select: none;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	margin: auto;
+}
+
+main {
+	max-width: 1500px;
+	margin: auto;
+}
+
+h1,h2 {
+	letter-spacing: 0.04rem;
+}
+
+.btn {
+	color: var(--clr-primary);
+   background-color: var(--clr-lg-btn);
+
+	cursor: pointer;
+	border: none;
+	transition:150ms;
+}
+
+.btn:focus{
+	outline: none;
+}
+
+.btn:hover {
+	background-color: #616fb8;
+}
+
+.btn:active {
+	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+/* Blob */
