@@ -14,8 +14,6 @@ function Quiz({ setGame }) {
 		fetchTrivia()
 	}, [])
 
-	console.log(triviaData[0])
-	console.log(score)
 	// fetch objects
 	async function fetchTrivia() {
 		const res = await fetch(
@@ -35,7 +33,7 @@ function Quiz({ setGame }) {
 
 	function renderTriviaElements() {
 		return triviaData.map((item) => {
-			return <Trivia key={item.id} {...item} handleSubmit={handleSubmit} />
+			return <Trivia key={item.id} {...item} handleSubmit={handleSubmit} score={score}/>
 		})
 	}
 
@@ -77,6 +75,7 @@ function Quiz({ setGame }) {
 	return (
 		<div className="quiz">
 			{score != null && <Confetti />}
+			<h2>Quizzical</h2>
 			{renderTriviaElements()}
 			<section className="results">
 				{score != null && (

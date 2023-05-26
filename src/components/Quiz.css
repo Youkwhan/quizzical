@@ -5,6 +5,14 @@
 	gap: 2em;
 }
 
+.quiz > h2 {
+	text-align: center;
+	text-decoration: underline;
+	font-family: var(--ff-secondary);
+	font-weight: var(--fw-700);
+	font-size: var(--fs-large);
+}
+
 .results {
 	display: flex;
 	justify-content: center;

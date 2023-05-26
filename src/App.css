@@ -2,7 +2,7 @@
 	text-align: center;
 }
 
-.start-quiz h1 {
+.start-quiz > h1 {
 	font-family: var(--ff-secondary);
 	font-weight: var(--fw-700);
 	font-size: var(--fs-large);
