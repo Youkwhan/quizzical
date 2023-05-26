@@ -17,11 +17,11 @@ function Quiz({ setGame }) {
 		fetchTrivia()
 	}, [])
 
+	console.log(triviaData[0])
+
 	// fetch objects
 	async function fetchTrivia() {
-		const res = await fetch(
-			"https://opentdb.com/api.php?amount=5&category=18&type=multiple"
-		)
+		const res = await fetch("https://opentdb.com/api.php?amount=5&category=18")
 		const data = await res.json()
 		const triviaArr = data.results.map((item) => ({
 			...item,

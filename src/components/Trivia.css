@@ -28,11 +28,13 @@
 	box-shadow: inset 5px 5px 10px -3px rgba(27, 27, 29, 0.7);
 }
 
-input[type="radio"] {
+input[type="radio"],
+input[type="checkbox"] {
 	display: none;
 }
 
-input[type="radio"]:checked + label {
+input[type="radio"]:checked + label,
+input[type="checkbox"]:checked + label {
 	background-color: #d6dbf5; /* Apply different styles to the checked radio button */
 	color: var(--clr-secondary);
 }

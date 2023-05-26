@@ -24,14 +24,18 @@ function Trivia(props) {
 					return (
 						<div key={choice}>
 							<input
-								type="radio"
-								id={choice}
+								type={props.type === "multiple" ? "radio" : "checkbox"}
+								id={`${props.id}-${choice}`}
 								name={props.id}
 								value={choice}
 								checked={props.selectedAnswer === choice}
 								onChange={props.handleSubmit}
 							/>
-							<label className="label" style={labelStyles} htmlFor={choice}>
+							<label
+								className="label"
+								style={labelStyles}
+								htmlFor={`${props.id}-${choice}`}
+							>
 								{decode(choice)}
 							</label>
 						</div>
@@ -51,6 +55,7 @@ Trivia.propTypes = {
 	handleSubmit: PropTypes.func.isRequired,
 	score: PropTypes.number,
 	correct_answer: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
 }
 
 export default Trivia
