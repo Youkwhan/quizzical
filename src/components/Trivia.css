@@ -3,6 +3,8 @@
 	flex-wrap: wrap;
 	margin: 1em auto;
 	gap: 1em;
+	max-width: 1000px;
+	padding-left: 1em;
 }
 
 .label {

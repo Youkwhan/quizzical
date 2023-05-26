@@ -4,11 +4,14 @@ import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
 import "./Quiz.css"
 import PropTypes from "prop-types"
+import { useWindowSize } from "react-use"
 
 function Quiz({ setGame }) {
 	// data, array of objects. Our source of truth, no need for another state for the React elements itself
 	const [triviaData, setTriviaData] = useState([])
 	const [score, setScore] = useState(null)
+	// calculate window size, for the Confetti will default to inital window dimensions
+	const { width, height } = useWindowSize()
 
 	useEffect(() => {
 		fetchTrivia()
@@ -33,7 +36,14 @@ function Quiz({ setGame }) {
 
 	function renderTriviaElements() {
 		return triviaData.map((item) => {
-			return <Trivia key={item.id} {...item} handleSubmit={handleSubmit} score={score}/>
+			return (
+				<Trivia
+					key={item.id}
+					{...item}
+					handleSubmit={handleSubmit}
+					score={score}
+				/>
+			)
 		})
 	}
 
@@ -74,7 +84,7 @@ function Quiz({ setGame }) {
 
 	return (
 		<div className="quiz">
-			{score != null && <Confetti />}
+			{score != null && <Confetti width={width} height={height} />}
 			<h2>Quizzical</h2>
 			{renderTriviaElements()}
 			<section className="results">
