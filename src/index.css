@@ -9,7 +9,7 @@
 
 	--fs-large: 2rem; /* 31.25px; */
 	--fs-regular: 1rem; /* 16px; */
-	--fs-score: 0.8rem; /* 12.8px; */
+	--fs-score: 1.2rem; /* 12.8px; */
 
 	--clr-primary: #eaedf5;
 	--clr-secondary: #293264;
@@ -37,7 +37,7 @@ body {
 }
 
 body {
-	font-family: var(--ff-secondary);
+	font-family: var(--ff-primary);
 	color: var(--clr-secondary);
 	background-color: var(--clr-primary);
 	line-height: 1.5;

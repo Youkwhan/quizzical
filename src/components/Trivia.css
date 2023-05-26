@@ -6,15 +6,24 @@
 }
 
 .label {
-   cursor: pointer;
+	cursor: pointer;
 	border: 1px solid #4d5b9e;
 	border-radius: 8px;
-   
+
 	display: inline-block;
 	padding: 0.25em 0.5em;
-   font-weight: var(--fw-500);
-   font-size: var(--fs-regular);
-   
+	font-weight: var(--fw-500);
+	font-size: var(--fs-regular);
+
+	transition: 150ms;
+}
+
+.label:hover {
+	background-color: #d6e2f5;
+}
+
+.label:active {
+	box-shadow: inset 5px 5px 10px -3px rgba(27, 27, 29, 0.7);
 }
 
 input[type="radio"] {

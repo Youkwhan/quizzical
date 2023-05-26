@@ -5,11 +5,23 @@
 	gap: 2em;
 }
 
+.results {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.results__score {
+	font-weight: var(--fw-700);
+	font-size: var(--fs-score);
+	margin: 0 auto;
+}
+
 .check-answers-btn {
 	font-weight: var(--fw-500);
 	font-size: var(--fs-regular);
 
 	border-radius: 15px;
 	padding: 1em 1.75em;
-   margin: 0 auto;
+	margin: 0 auto;
 }

@@ -12,7 +12,7 @@ function App() {
 
 			<div className="content-container">
 				{game ? (
-					<Quiz />
+					<Quiz setGame = {setGame}/>
 				) : (
 					<div className="start-quiz">
 						<h1>Quizzical</h1>

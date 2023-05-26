@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react"
 import Trivia from "./Trivia"
 import { nanoid } from "nanoid"
+import Confetti from "react-confetti"
 import "./Quiz.css"
+import PropTypes from "prop-types"
 
-function Quiz() {
+function Quiz({ setGame }) {
 	// data, array of objects. Our source of truth, no need for another state for the React elements itself
 	const [triviaData, setTriviaData] = useState([])
+	const [score, setScore] = useState(null)
 
 	useEffect(() => {
 		fetchTrivia()
 	}, [])
 
-	console.log(triviaData)
+	console.log(triviaData[0])
+	console.log(score)
 	// fetch objects
 	async function fetchTrivia() {
-		const res = await fetch("https://opentdb.com/api.php?amount=5&category=18&type=multiple")
+		const res = await fetch(
+			"https://opentdb.com/api.php?amount=5&category=18&type=multiple"
+		)
 		const data = await res.json()
 		const triviaArr = data.results.map((item) => ({
 			...item,
@@ -49,12 +55,45 @@ function Quiz() {
 		)
 	}
 
+	// Check if our answers are correct or not.
+	function handleCheckAnswer() {
+		// loop throughour data and compare our answer to the answer
+		// then render the score FIRST
+		if (score === null) {
+			let newScore = 0
+			triviaData.forEach((question) => {
+				if (question.correct_answer === question.selectedAnswer) {
+					newScore++
+				}
+			})
+			setScore(newScore)
+		} else {
+			// Play again
+			setScore(null)
+			setGame(false)
+		}
+	}
+
 	return (
 		<div className="quiz">
+			{score != null && <Confetti />}
 			{renderTriviaElements()}
-			<button className="check-answers-btn btn">Check answers</button>
+			<section className="results">
+				{score != null && (
+					<p className="results__score">
+						You scored {score}/{triviaData.length} correct answers
+					</p>
+				)}
+				<button className="check-answers-btn btn" onClick={handleCheckAnswer}>
+					{score != null ? "Play again" : "Check answers"}
+				</button>
+			</section>
 		</div>
 	)
+}
+
+Quiz.propTypes = {
+	setGame: PropTypes.func.isRequired,
 }
 
 export default Quiz
