@@ -1,0 +1,15 @@
+.quiz {
+	padding: 3em;
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}
+
+.check-answers-btn {
+	font-weight: var(--fw-500);
+	font-size: var(--fs-regular);
+
+	border-radius: 15px;
+	padding: 1em 1.75em;
+   margin: 0 auto;
+}

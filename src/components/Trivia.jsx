@@ -1,10 +1,12 @@
 import PropTypes from "prop-types"
+import { decode } from "html-entities"
+import "./Trivia.css"
 
 function Trivia(props) {
 	return (
 		<div>
-			<h2>{props.question}</h2>
-			<form className="form-options">
+			<h2>{decode(props.question)}</h2>
+			<form className="form">
 				{props.choices.map((choice) => {
 					return (
 						<div key={choice}>
@@ -16,7 +18,9 @@ function Trivia(props) {
 								checked={props.selectedAnswer === choice}
 								onChange={props.handleSubmit}
 							/>
-							<label htmlFor={choice}>{choice}</label>
+							<label className="label" htmlFor={choice}>
+								{decode(choice)}
+							</label>
 						</div>
 					)
 				})}

@@ -1,0 +1,27 @@
+.form {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1em auto;
+	gap: 1em;
+}
+
+.label {
+   cursor: pointer;
+	border: 1px solid #4d5b9e;
+	border-radius: 8px;
+   
+	display: inline-block;
+	padding: 0.25em 0.5em;
+   font-weight: var(--fw-500);
+   font-size: var(--fs-regular);
+   
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="radio"]:checked + label {
+	background-color: #d6dbf5; /* Apply different styles to the checked radio button */
+	color: var(--clr-secondary);
+}

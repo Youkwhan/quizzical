@@ -9,7 +9,6 @@
 
 	--fs-large: 2rem; /* 31.25px; */
 	--fs-regular: 1rem; /* 16px; */
-	--fs-small: 0.65rem; /* 10.24px; */
 	--fs-score: 0.8rem; /* 12.8px; */
 
 	--clr-primary: #eaedf5;
@@ -60,22 +59,27 @@ main {
 	margin: auto;
 }
 
-h1,h2 {
+p,
+h1,
+h2 {
 	letter-spacing: 0.04rem;
+	white-space: unset;
+	text-wrap: balance;
+	max-inline-size: 50ch;
 }
 
 /* buttons */
 
 .btn {
 	color: var(--clr-primary);
-   background-color: var(--clr-lg-btn);
+	background-color: var(--clr-lg-btn);
 
 	cursor: pointer;
 	border: none;
-	transition:150ms;
+	transition: 150ms;
 }
 
-.btn:focus{
+.btn:focus {
 	outline: none;
 }
 
@@ -86,4 +90,3 @@ h1,h2 {
 .btn:active {
 	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
-
