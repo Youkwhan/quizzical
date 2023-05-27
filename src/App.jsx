@@ -28,18 +28,18 @@ function App() {
 	function handleFormConfigSubmit(event) {
 		event.preventDefault()
 		setApiError({ show: false, message: "" })
-		// reset form
+		setGame(true)
+	}
+
+	function handleApiError(error) {
+		setApiError({ show: true, message: error.message })
+		// reset form, when error bcz if not we don't want to delete our user inputs
 		setFormData({
 			numOfQuestions: 5,
 			category: "",
 			difficulty: "",
 			type: "",
 		})
-		setGame(true)
-	}
-
-	function handleApiError(error) {
-		setApiError({ show: true, message: error.message })
 		setGame(false)
 	}
 
