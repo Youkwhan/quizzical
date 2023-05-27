@@ -58,3 +58,19 @@
 	box-shadow: 0 0 15px #b8af6d;
 }
 
+/* footer */
+.footer {
+	text-align: center;
+	padding-top: 2em;
+}
+
+.footer p{
+	margin: 0 auto;
+	font-size: small;
+}
+
+.footer a{
+	font-weight: var(--fw-700);
+	color: var(--clr-secondary);
+	text-decoration: none;
+}

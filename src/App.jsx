@@ -12,13 +12,14 @@ function App() {
 
 			<div className="content-container">
 				{game ? (
-					<Quiz setGame = {setGame}/>
+					<Quiz setGame={setGame} />
 				) : (
 					<div className="start-quiz">
 						<h1>Quizzical</h1>
 						<p className="start-quiz__description">
 							Some description if needed
 						</p>
+						{/* category, difficulty, type of question */}
 						<button
 							className="start-quiz__btn btn"
 							onClick={() => setGame(true)}
@@ -28,6 +29,18 @@ function App() {
 					</div>
 				)}
 			</div>
+			<footer className="footer">
+				<p>
+					&copy; 2023{" "}
+					<a
+						href="https://github.com/Youkwhan/quizzical"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Youkwhan
+					</a>
+				</p>
+			</footer>
 		</main>
 	)
 }
