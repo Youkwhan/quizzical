@@ -12,6 +12,28 @@ function App() {
 		difficulty: "",
 		type: "",
 	})
+	const [apiError, setApiError] = useState({ show: false, message: "" })
+
+	function handleFormConfig(e) {
+		const { name, value } = e.target
+		setFormData((prevFormData) => ({
+			...prevFormData,
+			// name = category/difficulty/type
+			// value = which option was selected
+			[name]: value,
+		}))
+	}
+
+	function handleFormConfigSubmit(event) {
+		event.preventDefault()
+		setGame(true)
+	}
+
+	function handleApiError(error) {
+		setGame(false)
+		setApiError({ show: true, message: error.message })
+	}
+
 	return (
 		<main>
 			<div className="blob blob-top"></div>
@@ -19,9 +41,18 @@ function App() {
 
 			<div className="content-container">
 				{game ? (
-					<Quiz setGame={setGame} />
+					<Quiz
+						formData={formData}
+						setGame={setGame}
+						handleApiError={handleApiError}
+					/>
 				) : (
-					<QuizMenu setGame={setGame} formData={formData} />
+					<QuizMenu
+						formData={formData}
+						apiError={apiError}
+						handleFormConfig={handleFormConfig}
+						handleFormConfigSubmit={handleFormConfigSubmit}
+					/>
 				)}
 			</div>
 			<footer className="footer">

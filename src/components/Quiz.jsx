@@ -6,7 +6,7 @@ import "./Quiz.css"
 import PropTypes from "prop-types"
 import { useWindowSize } from "react-use"
 
-function Quiz({ setGame }) {
+function Quiz({ setGame, formData, handleApiError }) {
 	// data, array of objects. Our source of truth, no need for another state for the React elements itself
 	const [triviaData, setTriviaData] = useState([])
 	const [score, setScore] = useState(null)
@@ -21,17 +21,41 @@ function Quiz({ setGame }) {
 
 	// fetch objects
 	async function fetchTrivia() {
-		const res = await fetch("https://opentdb.com/api.php?amount=5&category=18")
-		const data = await res.json()
-		const triviaArr = data.results.map((item) => ({
-			...item,
-			id: nanoid(),
-			choices: [...item.incorrect_answers, item.correct_answer].sort(
-				() => Math.random() - 0.5
-			),
-			selectedAnswer: "",
-		})) // This way we rerender and dont have the old data still
-		setTriviaData(triviaArr)
+		try {
+			const res = await fetch(
+				`https://opentdb.com/api.php?amount=5&category=${formData.category}&difficulty=${formData.difficulty}&type=${formData.type}`
+			)
+			if (!res.ok) {
+				throw new Error(
+					"An error occurred while trying to get trivia questions. Please try again later."
+				)
+			}
+			const data = await res.json()
+			// No Results: not enough questions for that query
+			if (data.response_code === 1) {
+				throw new Error(
+					"There are currenlty no results with the given opitons. Please try again with different options."
+				)
+			} else if (data.response_code != 0) {
+				throw new Error(
+					"An error occurred while trying to get trivia questions. Please try again later."
+				)
+			}
+
+			// randomize our answer choices
+			const triviaArr = data.results.map((item) => ({
+				...item,
+				id: nanoid(),
+				choices: [...item.incorrect_answers, item.correct_answer].sort(
+					() => Math.random() - 0.5
+				),
+				selectedAnswer: "",
+			})) // This way we rerender and dont have the old data still
+			setTriviaData(triviaArr)
+		} catch (error) {
+			console.log(error)
+			handleApiError(error)
+		}
 	}
 
 	function renderTriviaElements() {
@@ -102,7 +126,9 @@ function Quiz({ setGame }) {
 }
 
 Quiz.propTypes = {
+	formData: PropTypes.object.isRequired,
 	setGame: PropTypes.func.isRequired,
+	handleApiError: PropTypes.func.isRequired,
 }
 
 export default Quiz
