@@ -14,7 +14,6 @@ function App() {
 	})
 	const [apiError, setApiError] = useState({ show: false, message: "" })
 
-	console.log(formData)
 	function handleFormConfig(e) {
 		const { name, value } = e.target
 		setFormData((prevFormData) => ({
@@ -33,7 +32,7 @@ function App() {
 
 	function handleApiError(error) {
 		setApiError({ show: true, message: error.message })
-		// reset form, when error bcz if not we don't want to delete our user inputs
+		// reset form, when error bcz if not we don't want to delete our user inputs 
 		setFormData({
 			numOfQuestions: 5,
 			category: "",
@@ -47,7 +46,7 @@ function App() {
 		<main>
 			<div className="blob blob-top"></div>
 			<div className="blob blob-bot"></div>
-
+	
 			<div className="content-container">
 				{game ? (
 					<Quiz

@@ -1,0 +1,12 @@
+.loading {
+   margin: 0 auto;
+}
+
+.loading > p{
+   margin-top: 1em;
+   text-align: center;
+   font-weight: var(--fw-700);
+	font-size: var(--fs-large);
+}
+.spinner {
+}

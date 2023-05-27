@@ -5,6 +5,7 @@ import Confetti from "react-confetti"
 import "./Quiz.css"
 import PropTypes from "prop-types"
 import { useWindowSize } from "react-use"
+import Loading from "./Loading"
 
 function Quiz({ setGame, formData, handleApiError }) {
 	// data, array of objects. Our source of truth, no need for another state for the React elements itself
@@ -12,6 +13,7 @@ function Quiz({ setGame, formData, handleApiError }) {
 	const [score, setScore] = useState(null)
 	// calculate window size, for the Confetti will default to inital window dimensions
 	const { width, height } = useWindowSize()
+	const [isLoading, setIsLoading] = useState(false)
 
 	useEffect(() => {
 		fetchTrivia()
@@ -19,6 +21,7 @@ function Quiz({ setGame, formData, handleApiError }) {
 
 	// fetch objects
 	async function fetchTrivia() {
+		setIsLoading(true)
 		try {
 			const res = await fetch(
 				`https://opentdb.com/api.php?amount=5&category=${formData.category}&difficulty=${formData.difficulty}&type=${formData.type}`
@@ -39,7 +42,7 @@ function Quiz({ setGame, formData, handleApiError }) {
 					"An error occurred while trying to get trivia questions. Please try again later."
 				)
 			}
-			console.log(data)
+			// console.log(data)
 			// randomize our answer choices
 			const triviaArr = data.results.map((item) => ({
 				...item,
@@ -50,9 +53,10 @@ function Quiz({ setGame, formData, handleApiError }) {
 				selectedAnswer: "",
 			})) // This way we rerender and dont have the old data still
 			setTriviaData(triviaArr)
+			setIsLoading(false)
 		} catch (error) {
-			console.log(error)
 			handleApiError(error)
+			setIsLoading(false)
 		}
 	}
 
@@ -108,17 +112,26 @@ function Quiz({ setGame, formData, handleApiError }) {
 		<div className="quiz">
 			{score != null && <Confetti width={width} height={height} />}
 			<h2 onClick={() => setGame(false)}>Quizzical</h2>
-			<section className="questionnaire">{renderTriviaElements()}</section>
-			<section className="results">
-				{score != null && (
-					<p className="results__score">
-						You scored {score}/{triviaData.length} correct answers
-					</p>
-				)}
-				<button className="check-answers-btn btn" onClick={handleCheckAnswer}>
-					{score != null ? "Play again" : "Check answers"}
-				</button>
-			</section>
+			{isLoading ? (
+				<Loading />
+			) : (
+				<>
+					<section className="questionnaire">{renderTriviaElements()}</section>
+					<section className="results">
+						{score != null && (
+							<p className="results__score">
+								You scored {score}/{triviaData.length} correct answers
+							</p>
+						)}
+						<button
+							className="check-answers-btn btn"
+							onClick={handleCheckAnswer}
+						>
+							{score != null ? "Play again" : "Check answers"}
+						</button>
+					</section>
+				</>
+			)}
 		</div>
 	)
 }
