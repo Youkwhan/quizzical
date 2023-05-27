@@ -1,10 +1,17 @@
 import { useState } from "react"
 
 import Quiz from "./components/Quiz"
+import QuizMenu from "./components/QuizMenu"
 import "./App.css"
 
 function App() {
 	const [game, setGame] = useState(false)
+	const [formData, setFormData] = useState({
+		numOfQuestions: 5,
+		category: "",
+		difficulty: "",
+		type: "",
+	})
 	return (
 		<main>
 			<div className="blob blob-top"></div>
@@ -14,19 +21,7 @@ function App() {
 				{game ? (
 					<Quiz setGame={setGame} />
 				) : (
-					<div className="start-quiz">
-						<h1>Quizzical</h1>
-						<p className="start-quiz__description">
-							Some description if needed
-						</p>
-						{/* category, difficulty, type of question */}
-						<button
-							className="start-quiz__btn btn"
-							onClick={() => setGame(true)}
-						>
-							Start quiz
-						</button>
-					</div>
+					<QuizMenu setGame={setGame} formData={formData} />
 				)}
 			</div>
 			<footer className="footer">

@@ -5,6 +5,12 @@
 	gap: 2em;
 }
 
+.questionnaire{
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
 .quiz > h2 {
 	text-align: center;
 	text-decoration: underline;

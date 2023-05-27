@@ -63,9 +63,8 @@ p,
 h1,
 h2 {
 	letter-spacing: 0.04rem;
-	white-space: unset;
-	text-wrap: balance;
 	max-inline-size: 50ch;
+	text-wrap: balance;
 }
 
 /* buttons */

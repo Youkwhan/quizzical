@@ -1,0 +1,23 @@
+.start-quiz {
+	text-align: center;
+}
+
+.start-quiz > h1 {
+	font-family: var(--ff-secondary);
+	font-weight: var(--fw-700);
+	font-size: var(--fs-large);
+	margin-bottom: 7px;
+}
+.start-quiz__description {
+	font-weight: var(--fw-400);
+	font-size: var(--fs-regular);
+	margin-bottom: 29px;
+}
+
+.start-quiz__btn {
+	font-weight: var(--fw-500);
+	font-size: var(--fs-regular);
+
+	border-radius: 15px;
+	padding: 1em 1.75em;
+}

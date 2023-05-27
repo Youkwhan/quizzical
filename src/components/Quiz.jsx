@@ -86,7 +86,7 @@ function Quiz({ setGame }) {
 		<div className="quiz">
 			{score != null && <Confetti width={width} height={height} />}
 			<h2>Quizzical</h2>
-			{renderTriviaElements()}
+			<section className="questionnaire">{renderTriviaElements()}</section>
 			<section className="results">
 				{score != null && (
 					<p className="results__score">
