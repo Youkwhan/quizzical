@@ -26,12 +26,20 @@ function App() {
 
 	function handleFormConfigSubmit(event) {
 		event.preventDefault()
+		setApiError({ show: false, message: "" })
+		// reset form
+		setFormData({
+			numOfQuestions: 5,
+			category: "",
+			difficulty: "",
+			type: "",
+		})
 		setGame(true)
 	}
 
 	function handleApiError(error) {
-		setGame(false)
 		setApiError({ show: true, message: error.message })
+		setGame(false)
 	}
 
 	return (
