@@ -17,8 +17,6 @@ function Quiz({ setGame, formData, handleApiError }) {
 		fetchTrivia()
 	}, [])
 
-	console.log(triviaData[0])
-
 	// fetch objects
 	async function fetchTrivia() {
 		try {
@@ -41,7 +39,7 @@ function Quiz({ setGame, formData, handleApiError }) {
 					"An error occurred while trying to get trivia questions. Please try again later."
 				)
 			}
-
+			console.log(data)
 			// randomize our answer choices
 			const triviaArr = data.results.map((item) => ({
 				...item,
@@ -109,7 +107,7 @@ function Quiz({ setGame, formData, handleApiError }) {
 	return (
 		<div className="quiz">
 			{score != null && <Confetti width={width} height={height} />}
-			<h2>Quizzical</h2>
+			<h2 onClick={() => setGame(false)}>Quizzical</h2>
 			<section className="questionnaire">{renderTriviaElements()}</section>
 			<section className="results">
 				{score != null && (

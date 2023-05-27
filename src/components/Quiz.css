@@ -5,6 +5,10 @@
 	gap: 2em;
 }
 
+.quiz > h2 {
+	cursor: pointer;
+}
+
 .questionnaire{
 	display: flex;
 	flex-direction: column;
@@ -29,6 +33,7 @@
 	font-weight: var(--fw-700);
 	font-size: var(--fs-score);
 	margin: 0 auto;
+	text-decoration: solid underline var(--clr-secondary) 3px;
 }
 
 .check-answers-btn {

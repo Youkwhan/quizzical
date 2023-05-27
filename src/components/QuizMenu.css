@@ -1,5 +1,20 @@
+:root {
+	--select-border: #777;
+	--select-focus: blue;
+	--select-arrow: var(--select-border);
+}
+
 .start-quiz {
 	text-align: center;
+	padding: 1em 2em;
+	/* glassmorphism */
+	/* From https://css.glass */
+	background: rgba(194, 202, 244, 0.23);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(194, 202, 244, 0.6);
 }
 
 .start-quiz > h1 {
@@ -11,13 +26,56 @@
 .start-quiz__description {
 	font-weight: var(--fw-400);
 	font-size: var(--fs-regular);
-	margin-bottom: 29px;
+	margin-bottom: 20px;
+}
+
+.api-error {
+	
+}
+
+.form-config {
+	/* border: 1px solid red; */
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.form-field {
+	font-weight: var(--fw-500);
+	font-size: var(--fs-regular);
+}
+
+.form-field > label {
+	display: block;
+	text-align: start;
+	padding: 0.2em;
+	font-weight: var(--fw-700);
+}
+
+.form-field > select {
+	/* appearance: none; */
+	cursor: pointer;
+	outline: none;
+
+	width: 100%;
+	min-width: 15ch;
+	max-width: 30ch;
+
+	padding: 0.25em 0.5em;
+	margin: 0;
+
+	font-size: 1.25rem;
+	line-height: 1.1;
+
+	background-color: #fff;
+	background-image: linear-gradient(to top, #d6dbf5, #fff 33%);
+	border: 1px solid var(--select-border);
+	border-radius: 0.25em;
+
 }
 
 .start-quiz__btn {
-	font-weight: var(--fw-500);
-	font-size: var(--fs-regular);
-
 	border-radius: 15px;
 	padding: 1em 1.75em;
+	margin: 20px auto;
 }

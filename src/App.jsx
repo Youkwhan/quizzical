@@ -14,6 +14,7 @@ function App() {
 	})
 	const [apiError, setApiError] = useState({ show: false, message: "" })
 
+	console.log(formData)
 	function handleFormConfig(e) {
 		const { name, value } = e.target
 		setFormData((prevFormData) => ({
