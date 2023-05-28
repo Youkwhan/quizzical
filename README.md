@@ -63,6 +63,7 @@ or
 A final solo project completely made from scratch as part of Scrimba's React Basic Course taught by @bobziroll!
 
 Trivia Questions API: https://opentdb.com/api_config.php
+Figma File: https://www.figma.com/file/E9S5iPcm10f0RIHK8mCqKL/Quizzical-App?type=design&node-id=0-1&t=P8lOLQwIJjSsbNcK-0
 
 ## Connect
 
