@@ -8,6 +8,8 @@ Quizzical is the ultimate online trivia quiz designed to test your knowledge acr
 
 ## Demo Video
 
+https://github.com/Youkwhan/quizzical/assets/37788922/b5249c59-4f62-4415-8b4e-463794e275ff
+
 ## Features:
 - **Vast Question Bank:** Quizzical utilizes the Open Trivia Database API to access a wide array of trivia questions covering various categories.
 - **Randomized Questions:** Each round presents players with 5 random questions, ensuring a unique experience every time.
