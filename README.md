@@ -26,8 +26,15 @@ or
 - visit the site [link](#quizzical)
 
 ## Approach
+1. **Initial Structure and Styling:** We started by creating the general structure of our application and implementing custom CSS. Our main components include QuizMenus.jsx, Quiz.jsx, and Trivia.jsx. We focused on setting up the overall layout and applied custom styling. Additionally, we practiced using CSS techniques such as z-index to manipulate the layering of elements, and we explored glassmorphism by utilizing box-shadows.
+2. **App.js and Game Flow:** Our App.js component plays a crucial role in determining which component to render based on the game state. If the game has not started, it renders the QuizMenu.jsx component, which interacts with the user through a <select> form. We utilized the formData state to manage the user's trivia preferences and send the selected options to the API as a JSON-like object. We also added CSS styling and animations to enhance the user experience.
+3. **QuizMenu.jsx:** This component manages user interactions related to trivia preferences. It sends the formData and utilizes the useEffect hook to handle side effects (inside Quiz.js where we render our questions), such as fetching data from the API. The component updates the formData state and communicates with the API to retrieve relevant trivia questions based on the user's preferences.
+4. **Quiz.jsx:** In this component, we render the trivia questions obtained from the API. We implemented a form with radio inputs to emulate multiple-choice questions. To maintain a single source of truth, we created a state containing an array of objects, where each object represents a question. We passed this state to the <Trivia /> component, which dynamically generates and renders each question and its answer choices. By adopting this approach, our React app maintains a centralized state for all questions, simplifying management and ensuring consistency.
 
-**Lessons Learned:**
+### Lessons Learned:
+- **Importance of Planning:** I realized the significance of planning ahead to ensure the development of pure functions and components. As new features were added during the development process, I noticed that my code started becoming more complex and cluttered. To address this, I took a step back and went back to the drawing board. By carefully assessing the impact on performance and the structure of the code, I was able to break down the tasks and take a step-by-step approach. This allowed me to maintain a more organized and efficient codebase that I could easily follow. Although there are still areas I would like to refactor, such as addressing props drilling and extracting functions into their own files, planning ahead helped me avoid unnecessary complexity and improve the overall code quality.
+
+- **Understanding Hooks:** Through the development of Quizzical, I gained a deep understanding of React hooks, specifically useState and useEffect. These hooks played a crucial role in managing state and handling component lifecycle events. I learned how to leverage the useState hook to create and manage state variables within functional components, enabling me to easily track and update data. The useEffect hook proved invaluable in managing side effects, such as fetching data from the API and performing actions in response to component lifecycle events. By mastering these hooks, I was able to ensure the proper flow and behavior of my application.
 
 ### Future Developments:
 - User input to control number of questions.
@@ -35,6 +42,10 @@ or
 - Add a leaderboard to track high scores and encourage competition.
 - API token, so each session will GUARENTEE a unique pool of questions, every rerun.
 
+## Credit
+A final solo project completely made from scratch as part of Scrimba's React Basic Course taught by @bobziroll!
+
+Trivia Questions API: https://opentdb.com/api_config.php
 
 ## Connect
 
