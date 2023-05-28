@@ -35,7 +35,7 @@ or
 
 <details>
   <summary><strong>2. App.js and Game Flow:</strong></summary>
-  <p>Our App.js component plays a crucial role in determining which component to render based on the game state. If the game has not started, it renders the QuizMenu.jsx component, which interacts with the user through a <select> form. We utilized the formData state to manage the user's trivia preferences and send the selected options to the API as a JSON-like object. We also added CSS styling and animations to enhance the user experience.</p>
+  <p>Our App.js component plays a crucial role in determining which component to render based on the game state. If the game has not started, it renders the QuizMenu.jsx component, which interacts with the user through a select form. We utilized the formData state to manage the user's trivia preferences and send the selected options to the API as a JSON-like object. We also added CSS styling and animations to enhance the user experience.</p>
 </details>
 
 <details>
@@ -45,7 +45,7 @@ or
 
 <details>
   <summary><strong>4. Quiz.jsx:</strong></summary>
-  <p>In this component, we render the trivia questions obtained from the API. We implemented a form with radio inputs to emulate multiple-choice questions. To maintain a single source of truth, we created a state containing an array of objects, where each object represents a question. We passed this state to the <Trivia /> component, which dynamically generates and renders each question and its answer choices. By adopting this approach, our React app maintains a centralized state for all questions, simplifying management and ensuring consistency.</p>
+  <p>In this component, we render the trivia questions obtained from the API. We implemented a form with radio inputs to emulate multiple-choice questions. To maintain a single source of truth, we created a state containing an array of objects, where each object represents a question. We passed this state to the Trivia component, which dynamically generates and renders each question and its answer choices. By adopting this approach, our React app maintains a centralized state for all questions, simplifying management and ensuring consistency.</p>
 </details>
 
 ### Lessons Learned:
